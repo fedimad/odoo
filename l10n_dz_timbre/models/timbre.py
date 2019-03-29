@@ -32,7 +32,7 @@ class ConfigTimbre(models.Model):
         if not liste_obj :
            raise UserError(_('Pas de confiuration du calcul Timbre.'))
         dict = liste_obj[-1]
-        montant_avec_timbre = ceil((montant * dict['valeur']) / dict['tranche'])
+        montant_avec_timbre = int((montant * dict['valeur']) / dict['tranche'])
         if montant_avec_timbre > dict['max_value']:
            montant_avec_timbre = dict['max_value']
         if montant_avec_timbre < dict['min_value']:
